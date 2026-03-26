@@ -1,0 +1,13 @@
+{
+  "name": "aws-spreads-poc",
+  "private": true,
+  "workspaces": [
+    "infra",
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "build": "npm run build -ws",
+    "typecheck": "npm run typecheck -ws"
+  }
+}

@@ -1,0 +1,138 @@
+enum WorkflowState {
+  UPLOADED
+  CLASSIFIED
+  EXTRACTED
+  MAPPED
+  REVIEW_REQUIRED
+  APPROVED
+  LOCKED
+  FAILED
+}
+
+enum PeriodType {
+  ANNUAL
+  QUARTERLY
+  TTM
+  PRO_FORMA
+}
+
+enum CellOrigin {
+  MANUAL
+  IMPORTED
+  AI_SUGGESTED
+  FORMULA
+}
+
+type Period {
+  id: ID!
+  label: String!
+  startDate: AWSDate
+  endDate: AWSDate
+  periodType: PeriodType!
+  locked: Boolean!
+}
+
+type ProvenanceRef {
+  documentId: ID!
+  page: Int!
+  excerpt: String
+}
+
+type SpreadCell {
+  rowId: ID!
+  periodId: ID!
+  rawValue: AWSJSON
+  normalizedValue: AWSJSON
+  displayValue: String
+  confidence: Float
+  origin: CellOrigin!
+  provenance: [ProvenanceRef!]
+  updatedAt: AWSDateTime!
+}
+
+type SpreadVersion {
+  id: ID!
+  spreadId: ID!
+  templateVersionId: ID!
+  workflowState: WorkflowState!
+  periods: [Period!]!
+  cells: [SpreadCell!]!
+  createdAt: AWSDateTime!
+}
+
+type TemplateRow {
+  id: ID!
+  sectionId: ID!
+  label: String!
+  normalizedTag: String
+  dataType: String!
+  formula: String
+  required: Boolean
+}
+
+type TemplateSection {
+  id: ID!
+  label: String!
+  statementType: String!
+  order: Int!
+  rows: [TemplateRow!]!
+}
+
+type TemplateVersion {
+  id: ID!
+  templateId: ID!
+  institutionId: ID!
+  name: String!
+  version: Int!
+  sections: [TemplateSection!]!
+  createdAt: AWSDateTime!
+}
+
+type ReviewTask {
+  id: ID!
+  spreadId: ID!
+  status: String!
+  reason: String!
+  assignedTo: String
+  createdAt: AWSDateTime!
+}
+
+type Query {
+  getSpreadVersion(spreadId: ID!, spreadVersionId: ID!): SpreadVersion
+  getTemplateVersion(templateVersionId: ID!): TemplateVersion
+  listReviewTasks(spreadId: ID!): [ReviewTask!]!
+}
+
+input UploadDocumentInput {
+  spreadId: ID!
+  borrowerId: ID!
+  institutionId: ID!
+  s3Key: String!
+}
+
+input UpdateCellInput {
+  spreadId: ID!
+  spreadVersionId: ID!
+  rowId: ID!
+  periodId: ID!
+  normalizedValue: AWSJSON!
+  displayValue: String
+}
+
+input ResolveReviewTaskInput {
+  spreadId: ID!
+  reviewTaskId: ID!
+  approved: Boolean!
+  notes: String
+}
+
+type Mutation {
+  uploadDocument(input: UploadDocumentInput!): Boolean!
+  updateCell(input: UpdateCellInput!): SpreadCell!
+  resolveReviewTask(input: ResolveReviewTaskInput!): ReviewTask!
+}
+
+type Subscription {
+  onSpreadChanged(spreadId: ID!): SpreadVersion
+    @aws_subscribe(mutations: ["updateCell"])
+}

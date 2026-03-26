@@ -1,0 +1,37 @@
+{
+  "id": "tplv1",
+  "templateId": "commercial-ci-standard",
+  "institutionId": "demo-bank",
+  "name": "Commercial C&I Standard",
+  "version": 1,
+  "createdAt": "2026-03-25T00:00:00Z",
+  "sections": [
+    {
+      "id": "income",
+      "label": "Income Statement",
+      "statementType": "INCOME_STATEMENT",
+      "order": 1,
+      "rows": [
+        { "id": "NET_SALES", "sectionId": "income", "label": "Net Sales", "normalizedTag": "NET_SALES", "dataType": "NUMBER" },
+        { "id": "COGS", "sectionId": "income", "label": "Cost of Goods Sold", "normalizedTag": "COST_OF_GOODS_SOLD", "dataType": "NUMBER" },
+        { "id": "GROSS_PROFIT", "sectionId": "income", "label": "Gross Profit", "normalizedTag": "GROSS_PROFIT", "dataType": "NUMBER", "formula": "NET_SALES - COGS" },
+        { "id": "OPEX", "sectionId": "income", "label": "Operating Expenses", "normalizedTag": "OPERATING_EXPENSES", "dataType": "NUMBER" },
+        { "id": "EBITDA_ROW", "sectionId": "income", "label": "EBITDA", "normalizedTag": "EBITDA", "dataType": "NUMBER", "formula": "GROSS_PROFIT - OPEX" }
+      ]
+    },
+    {
+      "id": "balance",
+      "label": "Balance Sheet",
+      "statementType": "BALANCE_SHEET",
+      "order": 2,
+      "rows": [
+        { "id": "CASH", "sectionId": "balance", "label": "Cash", "normalizedTag": "CASH_AND_EQUIVALENTS", "dataType": "NUMBER" },
+        { "id": "AR", "sectionId": "balance", "label": "Accounts Receivable", "normalizedTag": "ACCOUNTS_RECEIVABLE", "dataType": "NUMBER" },
+        { "id": "TCA", "sectionId": "balance", "label": "Total Current Assets", "normalizedTag": "TOTAL_CURRENT_ASSETS", "dataType": "NUMBER", "formula": "CASH + AR" },
+        { "id": "AP", "sectionId": "balance", "label": "Accounts Payable", "normalizedTag": "ACCOUNTS_PAYABLE", "dataType": "NUMBER" },
+        { "id": "TCL", "sectionId": "balance", "label": "Total Current Liabilities", "normalizedTag": "TOTAL_CURRENT_LIABILITIES", "dataType": "NUMBER", "formula": "AP" },
+        { "id": "NWC", "sectionId": "balance", "label": "Net Working Capital", "dataType": "NUMBER", "formula": "TCA - TCL" }
+      ]
+    }
+  ]
+}

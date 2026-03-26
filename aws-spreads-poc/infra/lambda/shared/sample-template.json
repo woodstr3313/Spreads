@@ -1,0 +1,41 @@
+{
+  "id": "tplv-ci-standard-v1",
+  "templateId": "tpl-ci-standard",
+  "institutionId": "demo-bank",
+  "name": "C&I Standard",
+  "version": 1,
+  "createdAt": "2026-03-25T00:00:00.000Z",
+  "sections": [
+    {
+      "id": "is-summary",
+      "label": "Income Statement",
+      "statementType": "INCOME_STATEMENT",
+      "order": 1,
+      "rows": [
+        { "id": "NET_SALES", "sectionId": "is-summary", "label": "Net Sales", "normalizedTag": "NET_SALES", "dataType": "NUMBER" },
+        { "id": "COGS", "sectionId": "is-summary", "label": "COGS", "normalizedTag": "COST_OF_GOODS_SOLD", "dataType": "NUMBER" },
+        { "id": "GROSS_PROFIT", "sectionId": "is-summary", "label": "Gross Profit", "normalizedTag": "GROSS_PROFIT", "dataType": "NUMBER", "formula": "NET_SALES - COGS" },
+        { "id": "OPERATING_EXPENSES", "sectionId": "is-summary", "label": "Operating Expenses", "normalizedTag": "OPERATING_EXPENSES", "dataType": "NUMBER" },
+        { "id": "EBITDA", "sectionId": "is-summary", "label": "EBITDA", "normalizedTag": "EBITDA", "dataType": "NUMBER", "formula": "GROSS_PROFIT - OPERATING_EXPENSES" },
+        { "id": "INTEREST_EXPENSE", "sectionId": "is-summary", "label": "Interest Expense", "normalizedTag": "INTEREST_EXPENSE", "dataType": "NUMBER" },
+        { "id": "NET_INCOME", "sectionId": "is-summary", "label": "Net Income", "normalizedTag": "NET_INCOME", "dataType": "NUMBER", "formula": "EBITDA - INTEREST_EXPENSE" }
+      ]
+    },
+    {
+      "id": "bs-summary",
+      "label": "Balance Sheet",
+      "statementType": "BALANCE_SHEET",
+      "order": 2,
+      "rows": [
+        { "id": "CASH_AND_EQUIVALENTS", "sectionId": "bs-summary", "label": "Cash and Equivalents", "normalizedTag": "CASH_AND_EQUIVALENTS", "dataType": "NUMBER" },
+        { "id": "ACCOUNTS_RECEIVABLE", "sectionId": "bs-summary", "label": "Accounts Receivable", "normalizedTag": "ACCOUNTS_RECEIVABLE", "dataType": "NUMBER" },
+        { "id": "TOTAL_CURRENT_ASSETS", "sectionId": "bs-summary", "label": "Total Current Assets", "normalizedTag": "TOTAL_CURRENT_ASSETS", "dataType": "NUMBER", "formula": "CASH_AND_EQUIVALENTS + ACCOUNTS_RECEIVABLE" },
+        { "id": "ACCOUNTS_PAYABLE", "sectionId": "bs-summary", "label": "Accounts Payable", "normalizedTag": "ACCOUNTS_PAYABLE", "dataType": "NUMBER" },
+        { "id": "TOTAL_CURRENT_LIABILITIES", "sectionId": "bs-summary", "label": "Total Current Liabilities", "normalizedTag": "TOTAL_CURRENT_LIABILITIES", "dataType": "NUMBER", "formula": "ACCOUNTS_PAYABLE" },
+        { "id": "TOTAL_EQUITY", "sectionId": "bs-summary", "label": "Total Equity", "normalizedTag": "TOTAL_EQUITY", "dataType": "NUMBER" },
+        { "id": "TOTAL_ASSETS", "sectionId": "bs-summary", "label": "Total Assets", "normalizedTag": "TOTAL_ASSETS", "dataType": "NUMBER", "formula": "TOTAL_CURRENT_ASSETS" },
+        { "id": "TOTAL_LIABILITIES", "sectionId": "bs-summary", "label": "Total Liabilities", "normalizedTag": "TOTAL_LIABILITIES", "dataType": "NUMBER", "formula": "TOTAL_CURRENT_LIABILITIES" }
+      ]
+    }
+  ]
+}

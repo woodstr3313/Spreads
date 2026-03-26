@@ -1,0 +1,9 @@
+{
+  "name": "@aws-spreads-poc/api-schema",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "node -e \"console.log('schema ready')\"",
+    "typecheck": "node -e \"console.log('schema check skipped')\""
+  }
+}

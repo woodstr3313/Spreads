@@ -1,0 +1,9 @@
+{
+  "spreadId": "spread-demo-001",
+  "borrowerId": "borrower-001",
+  "institutionId": "demo-bank",
+  "uploadedBy": "travis@example.com",
+  "s3Key": "uploads/demo/borrower-package.pdf",
+  "inlineSampleUpload": true,
+  "startWorkflow": false
+}

@@ -1,0 +1,18 @@
+{
+  "id": "spreadv1",
+  "spreadId": "spread1",
+  "templateVersionId": "tplv1",
+  "workflowState": "REVIEW_REQUIRED",
+  "createdAt": "2026-03-25T00:00:00Z",
+  "periods": [
+    { "id": "fy2025", "label": "FY2025", "periodType": "ANNUAL", "locked": false }
+  ],
+  "cells": [
+    { "rowId": "NET_SALES", "periodId": "fy2025", "rawValue": "1250000", "normalizedValue": 1250000, "origin": "IMPORTED", "updatedAt": "2026-03-25T00:00:00Z" },
+    { "rowId": "COGS", "periodId": "fy2025", "rawValue": "775000", "normalizedValue": 775000, "origin": "IMPORTED", "updatedAt": "2026-03-25T00:00:00Z" },
+    { "rowId": "OPEX", "periodId": "fy2025", "rawValue": "225000", "normalizedValue": 225000, "origin": "IMPORTED", "updatedAt": "2026-03-25T00:00:00Z" },
+    { "rowId": "CASH", "periodId": "fy2025", "rawValue": "95000", "normalizedValue": 95000, "origin": "IMPORTED", "updatedAt": "2026-03-25T00:00:00Z" },
+    { "rowId": "AR", "periodId": "fy2025", "rawValue": "185000", "normalizedValue": 185000, "origin": "AI_SUGGESTED", "updatedAt": "2026-03-25T00:00:00Z" },
+    { "rowId": "AP", "periodId": "fy2025", "rawValue": "110000", "normalizedValue": 110000, "origin": "IMPORTED", "updatedAt": "2026-03-25T00:00:00Z" }
+  ]
+}
