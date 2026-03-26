@@ -1,0 +1,72 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #0b1020;
+  color: #eef3ff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.page {
+  padding: 24px;
+  display: grid;
+  gap: 20px;
+}
+
+.hero, .panel {
+  background: #121a30;
+  border: 1px solid #2b3759;
+  border-radius: 18px;
+  padding: 20px;
+}
+
+.twoCol {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.cardStat, .listItem {
+  padding: 14px;
+  background: #17213c;
+  border: 1px solid #2b3759;
+  border-radius: 14px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th, .table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #2b3759;
+  text-align: left;
+}
+
+.muted { color: #a7b4d6; }
+.kpi { font-size: 28px; font-weight: 700; }
+.badge { display: inline-block; padding: 6px 10px; border: 1px solid #2b3759; border-radius: 999px; font-size: 12px; }
+.good { color: #6ee7b7; }
+.warn { color: #fbbf24; }
+.bad { color: #fca5a5; }
+.accent { color: #8ab4ff; }
+
+@media (max-width: 980px) {
+  .twoCol, .cards {
+    grid-template-columns: 1fr;
+  }
+}
